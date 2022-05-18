@@ -35,7 +35,11 @@ function Copyright(props) {
 
 const theme = createTheme();
 
+<<<<<<< HEAD
 export default function SignInSide() {
+=======
+export default function LogIn() {
+>>>>>>> Add routes for Sign Up and Log In
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
