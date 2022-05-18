@@ -1,5 +1,5 @@
 {
-  "name": "b-link",
+  "name": "client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
