@@ -1,9 +1,11 @@
-import React from 'react'
-
+import React from 'react';
+import SignUp from './Components/Signup/Signup';
 const App = () => {
   return (
-    <div>App</div>
-  )
-}
+    <div>
+      <SignUp></SignUp>
+    </div>
+  );
+};
 
-export default App
+export default App;
