@@ -15,24 +15,6 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-function Copyright(props) {
-  return (
-    <Typography
-      variant='body2'
-      color='text.secondary'
-      align='center'
-      {...props}
-    >
-      {'Copyright © '}
-      <Link color='inherit' href='https://mui.com/'>
-        B-Link
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
 const theme = createTheme();
 
 const currencies = [
@@ -167,43 +149,10 @@ export default function SignUp() {
                   />
                 </Grid>
               </Grid>
-              <TextField
-                margin='normal'
-                required
-                fullWidth
-                id='email'
-                label='Email Address'
-                name='email'
-                autoComplete='email'
-                autoFocus
-              />
-              <TextField
-                margin='normal'
-                required
-                fullWidth
-                name='password'
-                label='Password'
-                type='password'
-                id='password'
-                autoComplete='current-password'
-              />
-              <Button
-                type='submit'
-                fullWidth
-                variant='contained'
-                sx={{ mt: 3, mb: 2 }}
-              >
-                Sign Up
-              </Button>
-              <Grid container>
-                <Grid item xs>
-                  <Link href='#' variant='body2'></Link>
-                </Grid>
-                <Grid item>
-                  <Link href='#' variant='body2'>
-                    {'Already have an account? Login'}
-                  </Link>
-                </Grid>
+              <Grid item>
+                <Link href='/login' variant='body2'>
+                  {'Already have an account? Login'}
+                </Link>
               </Grid>
             </Box>
           </Box>

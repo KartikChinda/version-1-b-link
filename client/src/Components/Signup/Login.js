@@ -15,6 +15,7 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import image from '../../images/logo.svg';
 
+<<<<<<< HEAD
 function Copyright(props) {
   return (
     <Typography
@@ -32,6 +33,9 @@ function Copyright(props) {
     </Typography>
   );
 }
+=======
+import Copyright from './Copyright';
+>>>>>>> Make Copyright component, login and signup page link to each other
 
 const theme = createTheme();
 
@@ -113,6 +117,7 @@ export default function LogIn() {
               onSubmit={handleSubmit}
               sx={{ mt: 1 }}
             >
+<<<<<<< HEAD
               <TextField
                 margin='normal'
                 required
@@ -156,6 +161,20 @@ export default function LogIn() {
                     {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>
+=======
+              Log In
+            </Button>
+            <Grid container>
+              <Grid item xs>
+                <Link href='#' variant='body2'>
+                  Forgot password?
+                </Link>
+              </Grid>
+              <Grid item>
+                <Link href='/signup' variant='body2'>
+                  {"Don't have an account? Sign Up"}
+                </Link>
+>>>>>>> Make Copyright component, login and signup page link to each other
               </Grid>
               <Copyright sx={{ mt: 5 }} />
             </Box>

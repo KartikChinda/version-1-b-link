@@ -3,6 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 
 import SignUp from './Components/Signup/Signup';
 import LogIn from './Components/Signup/Login';
+import PersonalizeMinistry from './Components/Signup/PersonalizeMinistry';
+
 const App = () => {
   return (
     <div>
@@ -11,13 +13,19 @@ const App = () => {
           <Route
             path="/signup"
             element={
-              <SignUp></SignUp>
+              <SignUp/>
             }
           />
           <Route
             path="/login"
             element={
-              <LogIn></LogIn>
+              <LogIn/>
+            }
+          />
+          <Route
+            path="/personalize-ministry"
+            element={
+              <PersonalizeMinistry/>
             }
           />
         </Routes>
