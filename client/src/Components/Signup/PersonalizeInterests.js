@@ -1,10 +1,12 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
+// import TextField from '@mui/material/TextField';
+// import ToggleButton from '@mui/material/ToggleButton';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
+import Chip from '@mui/material/Chip';
+import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -19,7 +21,24 @@ import Copyright from './Copyright';
 
 const theme = createTheme();
 
-export default function LogIn() {
+export default function PersonalizeInterests() {
+  const [initialState, setState] = React.useState({
+    aiml: false,
+    arvr: false,
+    crypto: false,
+    quantum: false,
+    digitaliesing: false,
+  });
+
+  const handleClick = (name) => {
+    console.log(initialState);
+    setState(prevState => ({
+        ...prevState,
+        [name]: !prevState[name]
+    }));
+    console.log(initialState);
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -85,37 +104,43 @@ export default function LogIn() {
             }}
           >
             <Typography component='h1' variant='h5'>
-              Sign in
+              Personifizieren
             </Typography>
+            <br />
+            <Typography component='p' variant='p'>
+            Wähle aus den folgenden Themen aus, welche dich interessieren:
+            </Typography>
+            <br />
             <Box
               component='form'
               noValidate
               onSubmit={handleSubmit}
               sx={{ mt: 1 }}
             >
-              <TextField
-                margin='normal'
-                required
-                fullWidth
-                id='email'
-                label='Email Address'
-                name='email'
-                autoComplete='email'
-                autoFocus
-              />
-              <TextField
-                margin='normal'
-                required
-                fullWidth
-                name='password'
-                label='Password'
-                type='password'
-                id='password'
-                autoComplete='current-password'
-              />
+              <Stack 
+                direction="row" 
+                spacing={3}
+                margin="normal">
+                <Chip label="AI/ML" onClick={() => handleClick("aiml")} variant={initialState['aiml'] ? "" : "outlined"} color="primary" />
+                <Chip label="AR/VR" onClick={() => handleClick("arvr")} variant={initialState['arvr'] ? "" : "outlined"} color="primary" />
+                <Chip label="Cryptocurreny" onClick={() => handleClick("crypto")} variant={initialState['crypto'] ? "" : "outlined"} color="primary" />
+              </Stack>
+              <br />
+              <Stack 
+                direction="row" 
+                spacing={3}
+                margin="normal">
+                <Chip label="Quantum computing" onClick={() => handleClick("quantum")} variant={initialState['quantum'] ? "" : "outlined"} color="primary" />
+                <Chip label="Digitaliesing" onClick={() => handleClick("digitaliesing")} variant={initialState['digitaliesing'] ? "" : "outlined"} color="primary" />
+              </Stack>
+                
+                
+              
+              <br/>
               <FormControlLabel
-                control={<Checkbox value='remember' color='primary' />}
-                label='Remember me'
+                control={<Checkbox value='ich-stimme' color='primary' />}
+                label='Ich stimme zu die .......'
+                margin="normal"
               />
               <Button
                 type='submit'
@@ -123,20 +148,8 @@ export default function LogIn() {
                 variant='contained'
                 sx={{ mt: 3, mb: 2 }}
               >
-                Sign In
+                Weiter
               </Button>
-              <Grid container>
-                <Grid item xs>
-                  <Link href='#' variant='body2'>
-                    Forgot password?
-                  </Link>
-                </Grid>
-                <Grid item>
-                  <Link href='#' variant='body2'>
-                    {"Don't have an account? Sign Up"}
-                  </Link>
-                </Grid>
-              </Grid>
               <Copyright sx={{ mt: 5 }} />
             </Box>
           </Box>

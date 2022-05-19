@@ -8,12 +8,14 @@ import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import image from '../../images/logo.svg';
-import Container from '@mui/material/Container';
+// import Container from '@mui/material/Container';
 import MenuItem from '@mui/material/MenuItem';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+import Copyright from './Copyright';
 
 const theme = createTheme();
 
@@ -54,6 +56,10 @@ export default function SignUp() {
       email: data.get('email'),
       password: data.get('password'),
     });
+  };
+
+  const onClickSubmit = (event) => {
+    setCurrency(event.target.value);
   };
 
   return (
@@ -149,10 +155,60 @@ export default function SignUp() {
                   />
                 </Grid>
               </Grid>
-              <Grid item>
-                <Link href='/login' variant='body2'>
-                  {'Already have an account? Login'}
-                </Link>
+              <TextField
+                margin='normal'
+                required
+                fullWidth
+                id='email'
+                label='Email Address'
+                name='email'
+                autoComplete='email'
+                autoFocus
+              />
+              <TextField
+                    select
+                    margin='normal'
+                    required
+                    fullWidth
+                    id='email'
+                    label='Title'
+                    value={currency}
+                    onChange={handleChange}
+                  >
+                    {currencies.map((option) => (
+                      <MenuItem key={option.value} value={option.value}>
+                        {option.label}
+                      </MenuItem>
+                    ))}
+                  </TextField>
+              <TextField
+                margin='normal'
+                required
+                fullWidth
+                name='password'
+                label='Password'
+                type='password'
+                id='password'
+                autoComplete='current-password'
+              />
+              <Button
+                type='submit'
+                fullWidth
+                variant='contained'
+                sx={{ mt: 3, mb: 2 }}
+                onClick={onClickSubmit}
+              >
+                Sign Up
+              </Button>
+              <Grid container>
+                <Grid item xs>
+                  <Link href='#' variant='body2'></Link>
+                </Grid>
+                <Grid item>
+                  <Link href='#' variant='body2'>
+                    {'Already have an account? Login'}
+                  </Link>
+                </Grid>
               </Grid>
             </Box>
           </Box>

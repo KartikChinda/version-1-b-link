@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import SignUp from './Components/Signup/Signup';
 import LogIn from './Components/Signup/Login';
 import PersonalizeMinistry from './Components/Signup/PersonalizeMinistry';
+import PersonalizeInterests from './Components/Signup/PersonalizeInterests';
 
 const App = () => {
   return (
@@ -26,6 +27,12 @@ const App = () => {
             path="/personalize-ministry"
             element={
               <PersonalizeMinistry/>
+            }
+          />
+          <Route
+            path="/personalize-interests"
+            element={
+              <PersonalizeInterests/>
             }
           />
         </Routes>
