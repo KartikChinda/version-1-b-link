@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
@@ -7,10 +6,13 @@ import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
+import image from '../../images/logo.svg';
 import Container from '@mui/material/Container';
 import MenuItem from '@mui/material/MenuItem';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 function Copyright(props) {
@@ -35,20 +37,24 @@ const theme = createTheme();
 
 const currencies = [
   {
-    value: 'USD',
-    label: '$',
+    value: 'Mr',
+    label: 'Mr',
   },
   {
-    value: 'EUR',
-    label: '€',
+    value: 'Ms',
+    label: 'Ms',
   },
   {
-    value: 'BTC',
-    label: '฿',
+    value: 'Mrs',
+    label: 'Mrs',
   },
   {
-    value: 'JPY',
-    label: '¥',
+    value: 'Dr',
+    label: 'Dr',
+  },
+  {
+    value: 'Mx',
+    label: 'Mx',
   },
 ];
 
@@ -78,7 +84,7 @@ export default function SignUp() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://source.unsplash.com/random)',
+            display: 'flex',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light'
@@ -86,8 +92,32 @@ export default function SignUp() {
                 : t.palette.grey[900],
             backgroundSize: 'cover',
             backgroundPosition: 'center',
+            alignItems: 'center',
+            justifyContent: 'center',
           }}
-        />
+        >
+          <Card
+            sx={{
+              maxWidth: 390,
+              backgroundColor: '#FAFAFA',
+              boxShadow: '0 1px 4px 0 rgba(0,0,0,0)',
+            }}
+          >
+            <CardMedia
+              component='img'
+              height='140'
+              src={image}
+              alt='green iguana'
+            />
+            <CardContent>
+              <Typography variant='body2' color='text.secondary'>
+                B-Link ist deine Plattform, un Dich Kollegen aus dem
+                öffentlichen Dienst auszutauschen! Trete unserem Netzwerk bei,
+                um spannende Veranstaltungen zu finden.
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <Box
             sx={{
@@ -97,11 +127,8 @@ export default function SignUp() {
               alignItems: 'center',
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-              <LockOutlinedIcon />
-            </Avatar>
             <Typography component='h1' variant='h5'>
-              Sign Up
+              Anmelden
             </Typography>
             <Box
               component='form'
@@ -119,6 +146,7 @@ export default function SignUp() {
                     id='email'
                     label='Title'
                     value={currency}
+                    onChange={handleChange}
                   >
                     {currencies.map((option) => (
                       <MenuItem key={option.value} value={option.value}>
