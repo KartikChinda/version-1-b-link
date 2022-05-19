@@ -2,18 +2,18 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import image from '../../images/logo.svg';
-import Container from '@mui/material/Container';
-import MenuItem from '@mui/material/MenuItem';
+import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import image from '../../images/logo.svg';
 
 function Copyright(props) {
   return (
@@ -35,36 +35,7 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-const currencies = [
-  {
-    value: 'Mr',
-    label: 'Mr',
-  },
-  {
-    value: 'Ms',
-    label: 'Ms',
-  },
-  {
-    value: 'Mrs',
-    label: 'Mrs',
-  },
-  {
-    value: 'Dr',
-    label: 'Dr',
-  },
-  {
-    value: 'Mx',
-    label: 'Mx',
-  },
-];
-
-export default function SignUp() {
-  const [currency, setCurrency] = React.useState('EUR');
-
-  const handleChange = (event) => {
-    setCurrency(event.target.value);
-  };
-
+export default function SignInSide() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -78,6 +49,7 @@ export default function SignUp() {
     <ThemeProvider theme={theme}>
       <Grid container component='main' sx={{ height: '100vh' }}>
         <CssBaseline />
+
         <Grid
           item
           xs={false}
@@ -112,8 +84,8 @@ export default function SignUp() {
             <CardContent>
               <Typography variant='body2' color='text.secondary'>
                 B-Link ist deine Plattform, un Dich Kollegen aus dem
-                öffentlichen Dienst auszutauschen! In unserem Netzewerk findest
-                Du spannende Veranstaltungen.
+                öffentlichen Dienst auszutauschen! Trete unserem Netzwerk bei,
+                um spannende Veranstaltungen zu finden.
               </Typography>
             </CardContent>
           </Card>
@@ -121,52 +93,22 @@ export default function SignUp() {
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <Box
             sx={{
-              marginTop: 8,
+              my: 8,
+              mx: 4,
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
             }}
           >
             <Typography component='h1' variant='h5'>
-              Anmelden
+              Sign in
             </Typography>
             <Box
               component='form'
-              onSubmit={handleSubmit}
               noValidate
+              onSubmit={handleSubmit}
               sx={{ mt: 1 }}
             >
-              <Grid container spacing={2}>
-                <Grid item xs={4}>
-                  <TextField
-                    select
-                    margin='normal'
-                    required
-                    fullWidth
-                    id='email'
-                    label='Title'
-                    value={currency}
-                    onChange={handleChange}
-                  >
-                    {currencies.map((option) => (
-                      <MenuItem key={option.value} value={option.value}>
-                        {option.label}
-                      </MenuItem>
-                    ))}
-                  </TextField>
-                </Grid>
-                <Grid item xs={8}>
-                  <TextField
-                    margin='normal'
-                    required
-                    fullWidth
-                    id='name'
-                    label='Name'
-                    name='name'
-                    autoFocus
-                  />
-                </Grid>
-              </Grid>
               <TextField
                 margin='normal'
                 required
@@ -187,27 +129,33 @@ export default function SignUp() {
                 id='password'
                 autoComplete='current-password'
               />
+              <FormControlLabel
+                control={<Checkbox value='remember' color='primary' />}
+                label='Remember me'
+              />
               <Button
                 type='submit'
                 fullWidth
                 variant='contained'
                 sx={{ mt: 3, mb: 2 }}
               >
-                Sign Up
+                Sign In
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <Link href='#' variant='body2'></Link>
+                  <Link href='#' variant='body2'>
+                    Forgot password?
+                  </Link>
                 </Grid>
                 <Grid item>
                   <Link href='#' variant='body2'>
-                    {'Already have an account? Login'}
+                    {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>
               </Grid>
+              <Copyright sx={{ mt: 5 }} />
             </Box>
           </Box>
-          <Copyright sx={{ mt: 8, mb: 4 }} />
         </Grid>
       </Grid>
     </ThemeProvider>
