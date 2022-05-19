@@ -1,9 +1,11 @@
 import React from 'react';
 import SignUp from './Components/Signup/Signup';
+import EventApp from './Components/Events/EventApp';
 const App = () => {
   return (
     <div>
-      <SignUp></SignUp>
+      <EventApp />
+      <SignUp />
     </div>
   );
 };
