@@ -6,9 +6,9 @@ const App = () => {
   return (
     <div>
       <EventApp />
-      <SignUp />
+      {/* <SignUp /> */}
 
-      <Login />
+      {/* <Login /> */}
     </div>
   );
 };
