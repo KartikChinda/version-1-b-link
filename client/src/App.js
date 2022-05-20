@@ -38,6 +38,12 @@ const App = () => {
               <PersonalizeInterests/>
             }
           />
+          <Route
+            path="/events"
+            element={
+              <EventApp />
+            }
+          />
         </Routes>
       </div>
 
