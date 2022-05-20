@@ -1,4 +1,7 @@
 import React from 'react';
+
+import EventApp from './Components/Events/EventApp';
+
 import { Routes, Route } from 'react-router-dom';
 
 import SignUp from './Components/Signup/Signup';
@@ -37,6 +40,7 @@ const App = () => {
           />
         </Routes>
       </div>
+
     </div>
   );
 };
