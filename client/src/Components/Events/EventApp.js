@@ -12,36 +12,40 @@ import TopEvents from './components/Events/TopEvents/TopEvents';
 const theme = createTheme();
 
 const EventApp = () => {
-    const classes = useStyles();
-    return (
-        <ThemeProvider theme={theme}>
-            <AppBar className={classes.appBar} position="static" style={{ background: '#FAFAFA' }}>
-                {/* <Typography className={classes.heading} variant="h3" >Events</Typography> */}
-                <img src={blinklogo} alt="icon" height="63" className={classes.image} />
-                <SettingsIcon color='disabled' />
-                <AccountCircleIcon color='disabled' />
-            </AppBar>
-            <Container maxWidth="lg">
-
-                <Grow in>
-                    <Container>
-                        <Grid container justify="space-between" alignItems="stretch" spacing={3}>
-                            <Grid item xs={12} sm={12}>
-
-                                <TopEvents />
-                            </Grid>
-                            <Grid item xs={12} sm={12}>
-                                <Events />
-                            </Grid>
-                            <Grid item xs={12} sm={12}>
-                                <Form />
-                            </Grid>
-                        </Grid>
-                    </Container>
-                </Grow>
-            </Container>
-        </ThemeProvider>
-    )
-}
+  const classes = useStyles();
+  return (
+    <ThemeProvider theme={theme}>
+      <AppBar
+        className={classes.appBar}
+        position='static'
+        style={{ background: '#FAFAFA' }}
+      >
+        <img src={blinklogo} alt='icon' height='63' className={classes.image} />
+        <SettingsIcon color='disabled' />
+        <AccountCircleIcon color='disabled' />
+      </AppBar>
+      <Container sx={{ py: 8 }} maxWidth='md'>
+        <Container>
+          <Grid
+            container
+            justify='space-between'
+            alignItems='stretch'
+            direction='row'
+          >
+            <Grid container>
+              <TopEvents />
+            </Grid>
+            <Grid container>
+              <Events />
+            </Grid>
+            <Grid item xs={12} sm={12}>
+              <Form />
+            </Grid>
+          </Grid>
+        </Container>
+      </Container>
+    </ThemeProvider>
+  );
+};
 
 export default EventApp;
