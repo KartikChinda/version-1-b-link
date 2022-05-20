@@ -8,30 +8,14 @@ import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import image from '../../images/logo.svg';
-import Container from '@mui/material/Container';
+// import Container from '@mui/material/Container';
 import MenuItem from '@mui/material/MenuItem';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-function Copyright(props) {
-  return (
-    <Typography
-      variant='body2'
-      color='text.secondary'
-      align='center'
-      {...props}
-    >
-      {'Copyright © '}
-      <Link color='inherit' href='https://mui.com/'>
-        B-Link
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import Copyright from './Copyright';
 
 const theme = createTheme();
 
@@ -72,6 +56,10 @@ export default function SignUp() {
       email: data.get('email'),
       password: data.get('password'),
     });
+  };
+
+  const onClickSubmit = (event) => {
+    setCurrency(event.target.value);
   };
 
   return (
@@ -178,6 +166,22 @@ export default function SignUp() {
                 autoFocus
               />
               <TextField
+                    select
+                    margin='normal'
+                    required
+                    fullWidth
+                    id='email'
+                    label='Title'
+                    value={currency}
+                    onChange={handleChange}
+                  >
+                    {currencies.map((option) => (
+                      <MenuItem key={option.value} value={option.value}>
+                        {option.label}
+                      </MenuItem>
+                    ))}
+                  </TextField>
+              <TextField
                 margin='normal'
                 required
                 fullWidth
@@ -192,6 +196,7 @@ export default function SignUp() {
                 fullWidth
                 variant='contained'
                 sx={{ mt: 3, mb: 2 }}
+                onClick={onClickSubmit}
               >
                 Sign Up
               </Button>
